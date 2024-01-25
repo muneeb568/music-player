@@ -1,0 +1,112 @@
+*{
+       margin: 0px;
+       padding: 0px;
+       font-family: "poppins",sans-serif;
+       box-sizing: border-box;             
+}
+.container{
+        width: -600px;
+        height: 100vh;
+        background: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;            
+}
+.musicplayer{
+       background: #ffe1e5;
+       width: 300px;
+       padding: 25px 35px;
+     text-align: center;                   
+}
+nav{
+         display: flex;
+         justify-content: space-between;
+         margin-bottom: 30px;
+}
+nav .circle{
+ border-radius: 50px;
+ width: 40px;
+ height: 40px;
+ line-height: 40px;
+ background: #fff;
+ color: red;
+ box-shadow: 0 5px 10px rgba(255,26,0.22);
+}
+.song-img{
+       width: 150px;
+       border-radius: 50px;
+       border: 8px solid #fff;
+       box-shadow: 0 10px 60px rgba(255, 26, 26, 0.913,22);             
+}
+.musicplayer h1{
+          font-size: 25px;
+          font-weight: 400;
+          color:#f53192;
+          margin-top: 20px;          
+}
+#progress{
+          -webkit-appearance:none;
+          width:130px ;
+          height:8px ;
+          background:black; 
+          border-radius: 4px;
+          cursor: pointer; 
+          margin: 40px 0px;       
+}
+#progress::-webkit-slider-thumb{
+      -webkit-appearance: none;
+      background: #f53192;
+      margin: 40px;
+      height: 30px;
+      border-radius: 50px;
+      border: 8px solid #fff;
+      box-shadow: 0 5px 10px rgba(255,26,26,0.22);                   
+}
+.controls{
+        display: flex;
+        justify-content: center;
+        align-items: center;            
+}
+.controls div{
+         width: 60px;
+         height: 60px;
+         margin:20px ;
+         background: #fff;
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         border-radius: 50px;
+         color: #f53192;
+         box-shadow: 0 5px 10px rgba(255,26,26,0.22);
+         cursor: pointer;           
+}
+.controls div:nth-child(2){
+                transform: scale(1.5);
+                background: black;
+                color: #fff;    
+}
+#volume-up{
+       width: 50px;
+       font-size:1rem ;
+       margin-top: 20px;
+       font-family: 'whisper';
+       margin-left: 20px;
+       color: #003c78;
+       height: 30px;
+       border: 0px;
+       outline: 0px;
+       border-radius: 30px;
+}
+#volume-down{
+       width: 50px;
+       font-size:1rem ;
+       margin-top: 20px;
+       font-family: 'whisper';
+       margin-left: 20px;
+       color: #003c78;
+       height: 30px;
+       border: 0px;
+       outline: 0px;
+       border-radius: 30px;
+}

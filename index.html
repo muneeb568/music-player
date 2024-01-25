@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player-easy tutorials</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=whisper:wght@400;700&display=swap" rel="stylesheet">
+
+  <script src="https://kit.fontawesome.com/778320a22d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="musicplayer">
+      <nav>
+        <div class="circle">
+          <i class="fa-solid fa-angle-left"></i>
+        </div>
+        <div class="circle">
+          <i class="fa-solid fa-bars"></i>
+          <button id="volume-up">vol+</button>
+          <button id="volume-down">vol-</button>
+        </div>
+      </nav>
+      <img src="media/Thumbnail.png.jpg" class="song-img">
+      <h1>TearemUp</h1>
+      <audio id="song">
+        <source src="media/Tearem Up.mp3" type="audio/mpeg">
+      </audio>
+      <input type="range" value="0" id="progress">
+      <div class="controls">
+        <div><i class="fa-solid fa-backward-step"></i></div>
+        <div onclick="playpause()"><i class="fa-solid fa-play" id="ctrlIcon"></i></div>
+        <div><i class="fa-solid fa-forward-step"></i></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const volumeUpBtn = document.getElementById('volume-up');
+      const volumeDownBtn = document.getElementById('volume-down');
+      const song = document.getElementById('song'); // Define 'song'
+
+      volumeUpBtn.addEventListener('click', function() {
+        if (song.volume < 1.0) {
+          song.volume += 0.1; // Increase volume by 0.1 (10%)
+        }
+      });
+
+      volumeDownBtn.addEventListener('click', function() {
+        if (song.volume > 0.0) {
+          song.volume -= 0.1; // Decrease volume by 0.1 (10%)
+        }
+      });
+    });
+
+    let progress = document.getElementById("progress");
+    let song = document.getElementById("song");
+    let ctrlIcon = document.getElementById("ctrlIcon");
+
+    song.onloadedmetadata = function() {
+      progress.max = song.duration;
+      progress.value = song.currentTime; // Update current time
+    }
+
+    function playpause() {
+      if (ctrlIcon.classList.contains("fa-pause")) {
+        song.pause();
+        ctrlIcon.classList.remove("fa-pause")
+        ctrlIcon.classList.add("fa-play")
+      } else {
+        song.play();
+        ctrlIcon.classList.add("fa-pause")
+        ctrlIcon.classList.remove("fa-play")
+      }
+    }
+
+    song.addEventListener('timeupdate', function() {
+      progress.value = song.currentTime; // Update progress continuously
+    });
+
+    progress.oninput = function() {
+      song.currentTime = progress.value;
+      ctrlIcon.classList.add("fa-pause")
+      ctrlIcon.classList.remove("fa-play")
+    }
+
+  </script>
+</body>
+</html>
